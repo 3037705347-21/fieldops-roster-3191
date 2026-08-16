@@ -39,7 +39,7 @@ func BuildSummary(workspace model.Workspace, now time.Time) Summary {
 			if order.DueAt.Before(now) {
 				summary.OverdueOpen++
 			}
-		case model.StatusScheduled:
+		case model.StatusScheduled, model.StatusInProgress:
 			summary.Scheduled++
 		case model.StatusCompleted:
 			summary.Completed++

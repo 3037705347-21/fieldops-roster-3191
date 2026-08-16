@@ -71,11 +71,11 @@ var (
 func (p Priority) Rank() int {
 	switch p {
 	case PriorityUrgent:
-		return 2
+		return 0
 	case PriorityStandard:
 		return 1
 	case PriorityLow:
-		return 0
+		return 2
 	default:
 		return 3
 	}

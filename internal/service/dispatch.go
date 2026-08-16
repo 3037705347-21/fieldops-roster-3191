@@ -23,6 +23,7 @@ func (s *DispatchService) AssignOpenOrders() planner.PlanResult {
 		for i := range s.Workspace.WorkOrders {
 			if s.Workspace.WorkOrders[i].ID == assignment.OrderID {
 				s.Workspace.WorkOrders[i].Status = model.StatusScheduled
+				s.Workspace.WorkOrders[i].AssignedTechID = assignment.TechID
 				break
 			}
 		}
