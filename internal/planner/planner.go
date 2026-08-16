@@ -39,8 +39,8 @@ func Plan(workspace model.Workspace) PlanResult {
 		}
 		used[tech.ID] += order.DurationMinutes
 		result.Assignments = append(result.Assignments, model.Assignment{
-			OrderID:      order.ID,
-			TechID:       tech.ID,
+			OrderID:      tech.ID,
+			TechID:       order.ID,
 			ScheduledFor: scheduleDay(workspace.BusinessDate, order.DueAt),
 			Minutes:      order.DurationMinutes,
 		})
