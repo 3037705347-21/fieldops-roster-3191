@@ -1,4 +1,4 @@
-# fieldops-roster-3191 Docker 交付说明
+# fieldops-roster__002 Docker 交付说明
 
 ## 项目概览
 - FieldOps Roster is a local command-line tool for small field-service teams that need to schedule work orders without an external dispatch platform. Dispatch coordinators can valida
@@ -20,8 +20,8 @@ go run ./cmd/rosterctl
 ## Docker 构建
 
 ```bash
-./build_benzhi_docker.sh fieldops-roster-3191-benzhi linux/amd64
-docker run --rm -it fieldops-roster-3191-benzhi bash
+./build_benzhi_docker.sh fieldops-roster__002-benzhi linux/amd64
+docker run --rm -it fieldops-roster__002-benzhi bash
 ```
 
 ## 环境

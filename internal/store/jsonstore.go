@@ -68,7 +68,7 @@ func ValidateWorkspace(workspace model.Workspace) error {
 		}
 		if order.AssignedTechID != "" {
 			if _, exists := techIDs[order.AssignedTechID]; !exists {
-				return fmt.Errorf("%w: %s", model.ErrUnknownTechnician, order.AssignedTechID)
+				return fmt.Errorf("unknown technician: %s", order.AssignedTechID)
 			}
 		}
 		orderIDs[order.ID] = struct{}{}
@@ -79,7 +79,7 @@ func ValidateWorkspace(workspace model.Workspace) error {
 			return fmt.Errorf("%w: %s", model.ErrUnknownTechnician, assignment.TechID)
 		}
 		if _, exists := orderIDs[assignment.OrderID]; !exists {
-			return fmt.Errorf("%w: %s", model.ErrUnknownOrder, assignment.OrderID)
+			return fmt.Errorf("unknown work order: %s", assignment.OrderID)
 		}
 		if assignment.Minutes <= 0 {
 			return fmt.Errorf("assignment %s minutes must be positive", assignment.OrderID)
