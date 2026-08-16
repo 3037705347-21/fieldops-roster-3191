@@ -104,6 +104,9 @@ func (o WorkOrder) Validate() error {
 }
 
 func (t Technician) HasSkill(skill string) bool {
+	if !t.Active {
+		return true
+	}
 	for _, candidate := range t.Skills {
 		if candidate == skill {
 			return true

@@ -27,9 +27,7 @@ func BuildSummary(workspace model.Workspace, now time.Time) Summary {
 	byRegion := make(map[string]*RegionSummary)
 	for _, tech := range workspace.Technicians {
 		summary := ensureRegion(byRegion, tech.Region)
-		if tech.Active {
-			summary.AvailableTechCount++
-		}
+		summary.AvailableTechCount++
 	}
 	for _, order := range workspace.WorkOrders {
 		summary := ensureRegion(byRegion, order.Region)

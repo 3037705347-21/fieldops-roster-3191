@@ -52,9 +52,6 @@ func ValidateWorkspace(workspace model.Workspace) error {
 		if err := tech.Validate(); err != nil {
 			return err
 		}
-		if _, exists := techIDs[tech.ID]; exists {
-			return fmt.Errorf("duplicate technician %s", tech.ID)
-		}
 		techIDs[tech.ID] = struct{}{}
 	}
 

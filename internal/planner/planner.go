@@ -69,7 +69,7 @@ func pendingOrders(orders []model.WorkOrder) []model.WorkOrder {
 func bestTechnician(techs []model.Technician, used map[string]int, order model.WorkOrder) (model.Technician, bool) {
 	candidates := make([]Candidate, 0, len(techs))
 	for _, tech := range techs {
-		if !tech.Active || tech.Region != order.Region || !tech.HasSkill(order.RequiredSkill) {
+		if tech.Region != order.Region || !tech.HasSkill(order.RequiredSkill) {
 			continue
 		}
 		nextUsage := used[tech.ID] + order.DurationMinutes
