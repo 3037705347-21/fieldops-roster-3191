@@ -1,0 +1,63 @@
+{
+  "generated_at": "2026-08-16T09:00:00Z",
+  "business_date": "2026-08-16T09:00:00Z",
+  "technicians": [
+    {
+      "id": "t-aki",
+      "name": "Aki Tanaka",
+      "region": "north",
+      "skills": ["fiber", "router"],
+      "daily_capacity_min": 300,
+      "active": true
+    },
+    {
+      "id": "t-mina",
+      "name": "Mina Sato",
+      "region": "north",
+      "skills": ["fiber", "hvac"],
+      "daily_capacity_min": 240,
+      "active": true
+    },
+    {
+      "id": "t-ken",
+      "name": "Ken Mori",
+      "region": "south",
+      "skills": ["router", "hvac"],
+      "daily_capacity_min": 240,
+      "active": true
+    }
+  ],
+  "work_orders": [
+    {
+      "id": "wo-1001",
+      "customer": "Clinic A",
+      "region": "north",
+      "required_skill": "fiber",
+      "duration_minutes": 90,
+      "priority": "urgent",
+      "status": "open",
+      "due_at": "2026-08-16T13:00:00Z"
+    },
+    {
+      "id": "wo-1002",
+      "customer": "Office 9",
+      "region": "north",
+      "required_skill": "router",
+      "duration_minutes": 120,
+      "priority": "standard",
+      "status": "open",
+      "due_at": "2026-08-16T17:00:00Z"
+    },
+    {
+      "id": "wo-1003",
+      "customer": "Cafe Blue",
+      "region": "south",
+      "required_skill": "hvac",
+      "duration_minutes": 60,
+      "priority": "low",
+      "status": "open",
+      "due_at": "2026-08-17T10:00:00Z"
+    }
+  ],
+  "assignments": []
+}
