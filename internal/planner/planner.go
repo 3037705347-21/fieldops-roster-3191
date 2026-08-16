@@ -22,7 +22,7 @@ func Plan(workspace model.Workspace) PlanResult {
 	orders := pendingOrders(workspace.WorkOrders)
 	sort.SliceStable(orders, func(i, j int) bool {
 		if orders[i].Priority.Rank() != orders[j].Priority.Rank() {
-			return orders[i].Priority.Rank() < orders[j].Priority.Rank()
+			return orders[i].Priority.Rank() > orders[j].Priority.Rank()
 		}
 		if !orders[i].DueAt.Equal(orders[j].DueAt) {
 			return orders[i].DueAt.Before(orders[j].DueAt)
@@ -72,8 +72,7 @@ func bestTechnician(techs []model.Technician, used map[string]int, order model.W
 		if !tech.Active || tech.Region != order.Region || !tech.HasSkill(order.RequiredSkill) {
 			continue
 		}
-		nextUsage := order.DurationMinutes
-		if nextUsage > tech.DailyCapacityMin {
+		if used[tech.ID]+order.DurationMinutes > tech.DailyCapacityMin {
 			continue
 		}
 		candidates = append(candidates, Candidate{Technician: tech, UsedMin: used[tech.ID]})
@@ -83,7 +82,7 @@ func bestTechnician(techs []model.Technician, used map[string]int, order model.W
 	}
 	sort.SliceStable(candidates, func(i, j int) bool {
 		if candidates[i].UsedMin != candidates[j].UsedMin {
-			return candidates[i].UsedMin > candidates[j].UsedMin
+			return candidates[i].UsedMin < candidates[j].UsedMin
 		}
 		return candidates[i].Technician.ID < candidates[j].Technician.ID
 	})
