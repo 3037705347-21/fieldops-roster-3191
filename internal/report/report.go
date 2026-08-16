@@ -44,7 +44,7 @@ func BuildSummary(workspace model.Workspace, now time.Time) Summary {
 		case model.StatusCompleted:
 			summary.Completed++
 		case model.StatusCancelled:
-			summary.Open++
+			summary.Cancelled++
 		}
 	}
 	for _, assignment := range workspace.Assignments {

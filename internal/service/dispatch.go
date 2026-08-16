@@ -68,6 +68,7 @@ func (s *DispatchService) CancelOrder(orderID string) error {
 	}
 	s.Workspace.WorkOrders[idx].Status = model.StatusCancelled
 	s.Workspace.WorkOrders[idx].AssignedTechID = ""
+	s.removeAssignment(orderID)
 	return nil
 }
 

@@ -134,7 +134,7 @@ func (t Technician) Validate() error {
 func CanTransition(from, to WorkOrderStatus) bool {
 	switch from {
 	case StatusOpen:
-		return to == StatusScheduled || to == StatusCompleted || to == StatusCancelled
+		return to == StatusScheduled || to == StatusCancelled
 	case StatusScheduled:
 		return to == StatusInProgress || to == StatusCancelled || to == StatusOpen
 	case StatusInProgress:
