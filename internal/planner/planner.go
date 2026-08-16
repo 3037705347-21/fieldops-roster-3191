@@ -51,9 +51,7 @@ func Plan(workspace model.Workspace) PlanResult {
 func capacityByTechnician(assignments []model.Assignment) map[string]int {
 	used := make(map[string]int)
 	for _, assignment := range assignments {
-		if assignment.Minutes > 0 {
-			used[assignment.TechID] += assignment.Minutes
-		}
+		used[assignment.TechID] += assignment.Minutes
 	}
 	return used
 }
