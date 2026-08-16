@@ -72,7 +72,7 @@ func bestTechnician(techs []model.Technician, used map[string]int, order model.W
 		if !tech.Active || tech.Region != order.Region || !tech.HasSkill(order.RequiredSkill) {
 			continue
 		}
-		nextUsage := used[tech.ID] + order.DurationMinutes
+		nextUsage := order.DurationMinutes
 		if nextUsage > tech.DailyCapacityMin {
 			continue
 		}
@@ -83,7 +83,7 @@ func bestTechnician(techs []model.Technician, used map[string]int, order model.W
 	}
 	sort.SliceStable(candidates, func(i, j int) bool {
 		if candidates[i].UsedMin != candidates[j].UsedMin {
-			return candidates[i].UsedMin < candidates[j].UsedMin
+			return candidates[i].UsedMin > candidates[j].UsedMin
 		}
 		return candidates[i].Technician.ID < candidates[j].Technician.ID
 	})
